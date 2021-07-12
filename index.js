@@ -3,7 +3,7 @@ const chalk = require('chalk');
 const clear = require('clear');
 const figlet = require('figlet');
 
-//Limapiando consola y creando un banner de entrada
+//Limpiando consola y creando un banner de entrada
 clear();
 console.log(chalk.yellowBright(figlet.textSync('MDLinks', { horizontalLayout: 'full' })));
 

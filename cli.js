@@ -26,6 +26,8 @@ const MDLinks = require("./index.js")
 const [, , ...args] = process.argv;
 const path = args[0]
 const validate = args[1]
+// const path = argv.path
+// const validate = argv.validate
 
 if (path && validate) {
   MDLinks.MDLinks(path, validate)
