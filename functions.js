@@ -6,7 +6,7 @@ const path = require('path');
 const fetch = require('node-fetch')
 
 // Funcion que revisa si la ruta ingresada es absoluta o relativa y si es relativa la convierte en absoluta.
-const pathAbsolute = ((ruta) => {
+const pathAbsolute = ruta => {
 
   const pathExist = fs.existsSync(ruta)
   const isAbsoluteFile = path.isAbsolute(ruta);
@@ -18,12 +18,11 @@ const pathAbsolute = ((ruta) => {
     return pathConvertAbsolut;
   } else {
     return new Error("La ruta no existe")
-    // throw new Error ("La ruta no existe")
   }
-});
+};
 
 //Función que revisa si la ruta es un directorio, si es asi crea un array con una lista de los archivos.
-const pathDirectory = ((ruta, fileDirectory) => {
+const pathDirectory = (ruta, fileDirectory) => {
 
   let arrayFilesDirectory = fileDirectory || [];
   const fileIsDirectory = fs.lstatSync(ruta).isDirectory()
@@ -35,21 +34,21 @@ const pathDirectory = ((ruta, fileDirectory) => {
     }
   } else if (fileIsDirectory === true) {
     const files = fs.readdirSync(ruta)
-    files.map((file) => {
+    files.map(file => {
       const pathChild = path.join(ruta, file)
       arrayFilesDirectory = pathDirectory(pathChild, arrayFilesDirectory)
     })
   }
 
   return arrayFilesDirectory;
-});
+};
 
 // Función que lee el archivo .md
 const ReadMDFile = (arrayListFiles) => {
-
+//probar colocanco un .filter y luego un .map para retornar el array, REVISAR
   let arrayObjectsLinks = []
 
-  arrayListFiles.forEach((ruta1) => {
+  arrayListFiles.forEach(ruta1 => {
 
     const data = fs.readFileSync(ruta1, 'utf8')
     const mdHTML = md.render(data);

@@ -21,10 +21,5 @@ const MDLinks = (path, validate) => {
     return promise
   }
 }
-// MDLinks("README.md")
-// C:/Users/Laboratoria/Documents/Laboratoria bootcamp/BOG002-md-links/README.md
-// MDLinks("C:/Users/Laboratoria/Documents/Laboratoria bootcamp/BOG002-md-links/README.md",true)
-// .then(console.log)
-// .catch(console.log)
 
 module.exports = { MDLinks };
